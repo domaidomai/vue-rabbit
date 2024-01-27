@@ -1,7 +1,10 @@
 <script setup>
 import { useCategoryStore } from '@/stores/category'
-
+import {onMounted} from 'vue'
 const categoryStore = useCategoryStore()
+/* onMounted(()=>{
+  categoryStore.getCategory()
+}) */
 </script>
 
 
@@ -15,7 +18,7 @@ const categoryStore = useCategoryStore()
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
+        <li v-for="item in categoryStore.categoryList" :key="item.id">
           <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
       </ul>
