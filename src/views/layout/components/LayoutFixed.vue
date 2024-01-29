@@ -10,7 +10,7 @@ const categoryStore = useCategoryStore()
 </script>
 
 <template>
-    <div class="app-header-sticky" :class="{show: y > 78}">
+    <div class="app-header-sticky" :class="{ show: y > 78 }">
         <div class="container">
             <RouterLink class="logo" to="/" />
             <!-- 导航区域 -->
@@ -18,8 +18,8 @@ const categoryStore = useCategoryStore()
                 <li class="home">
                     <RouterLink to="/">首页</RouterLink>
                 </li>
-                <li class="home" v-for=" item  in  categoryStore.categoryList " :key=" item.id ">
-                    <RouterLink :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
+                <li class="home" v-for=" item  in  categoryStore.categoryList " :key="item.id">
+                    <RouterLink active-class="active" :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
                 </li>
             </ul>
 
@@ -108,12 +108,11 @@ const categoryStore = useCategoryStore()
                 color: $xtxColor;
                 border-bottom: 1px solid $xtxColor;
             }
+        }
 
-
-            .active {
-                color: $xtxColor;
-                border-bottom: 1px solid $xtxColor;
-            }
+        .active {
+            color: $xtxColor;
+            border-bottom: 1px solid $xtxColor;
         }
     }
 }
