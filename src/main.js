@@ -12,6 +12,10 @@ import '@/styles/common.scss'
 //引入懒加载指令插件
 import {lazyPlugin} from '@/directives/index.js'
 
+// 引入全局组件插件
+import { componentPlugin } from '@/components'
+
+
 //测试接口函数
 /* import{getCategory} from '@/apis/testAPI.js'
 getCategory().then(res=>{
@@ -25,3 +29,5 @@ app.use(router)
 app.use(lazyPlugin)
 
 app.mount('#app')
+
+app.use(componentPlugin)
