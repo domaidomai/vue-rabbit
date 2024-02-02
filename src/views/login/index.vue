@@ -1,15 +1,17 @@
 <script setup>
 //表单校验（账号名+密码）
 import { ref } from 'vue'
-import { loginAPI } from '@/apis/user'
 import { ElMessage } from 'element-plus'
 import 'element-plus/theme-chalk/el-message.css'
 import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user'
+
+const userStore = useUserStore()
 
 //1.准备表单对象
 const form = ref({
-    account: '',
-    password: ''
+    account: 'xiaotuxian001',
+    password: '123456'
 })
 
 //2,准备规则对象
@@ -45,7 +47,7 @@ const doLogin = () => {
         //valid:所有表单都通过校验 true/false
         if (valid) {
             //login
-            const res = await loginAPI({ account, password })
+            await userStore.getUserInfo({ account, password })
             // 1. 提示用户
             ElMessage({ type: 'success', message: '登录成功' })
             // 2. 跳转首页
