@@ -1,10 +1,10 @@
 <script setup>
-import { getCheckInfoAPI } from '@/api/checkout'
+import { getCheckoutInfoAPI } from '@/apis/checkout'
 import { ref, onMounted } from 'vue'
 const checkInfo = ref({})  // 订单对象
 const curAddress = ref({})   // 默认地址对象
 const getCheckInfo = async () => {
-    const res = await getCheckInfoAPI()
+    const res = await getCheckoutInfoAPI()
     checkInfo.value = res.result
     //适配默认地址
     //从地址列表中找到默认地址 isDefault === true
