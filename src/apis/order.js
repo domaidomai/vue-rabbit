@@ -1,4 +1,4 @@
-import httpInstance from "@/utils/http";
+import request from "@/utils/http";
 /*
 params: {
 	orderState:0,
